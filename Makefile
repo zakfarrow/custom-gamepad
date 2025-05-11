@@ -27,7 +27,7 @@ remote-run:
 	ssh $(PI_HOST) "cd $(PI_DIR) && make run"
 
 remote-clean:
-	ssh $(PI_HOST) "cd $(PI_DIR) && rm -rf build"
+	ssh $(PI_HOST) "cd $(PI_DIR) && rm -rf build/"
 
 run:
 	LIBGL_ALWAYS_SOFTWARE=1 $(TARGET)
