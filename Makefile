@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra
 LIBS = -lwiringPi -lads7830 -lraylib
 
 PI_HOST = pi
-PI_DIR = /home/zakfarrow/projects/custom-gamepad
+PI_DIR = /home/zakfarrow/dev/custom-gamepad
 
 all: $(TARGET)
 
@@ -24,7 +24,7 @@ clean:
 	rm -rf build
 
 remote-run:
-	ssh $(PI_HOST) "cd $(PI_DIR) && make run"
+	ssh -X $(PI_HOST) "cd $(PI_DIR) && make run"
 
 remote-clean:
 	ssh $(PI_HOST) "cd $(PI_DIR) && rm -rf build/"
@@ -32,4 +32,4 @@ remote-clean:
 run:
 	LIBGL_ALWAYS_SOFTWARE=1 $(TARGET)
 
-.PHONY: all deploy clean run remote-run rmeote-clean
+.PHONY: all deploy clean run remote-run remote-clean
